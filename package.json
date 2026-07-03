@@ -8,7 +8,7 @@
     "build:cloudflare": "BUILD_TARGET=cloudflare pnpm gen:manifest && BUILD_TARGET=cloudflare npx @opennextjs/cloudflare build",
     "start": "NODE_ENV=production node server.js",
     "preview:cloudflare": "wrangler dev",
-    "deploy:cloudflare": "wrangler deploy",
+    "deploy:cloudflare": "pnpm exec wrangler deploy",
     "lint": "next lint",
     "lint:fix": "eslint src --fix && pnpm format",
     "lint:strict": "eslint --max-warnings=0 src",
