@@ -8,7 +8,7 @@
     "build:cloudflare": "BUILD_TARGET=cloudflare pnpm gen:manifest && BUILD_TARGET=cloudflare npx @opennextjs/cloudflare build",
     "start": "NODE_ENV=production node server.js",
     "preview:cloudflare": "wrangler dev",
-    "deploy:cloudflare": "wrangler deploy",
+    "deploy:cloudflare": "pnpm exec wrangler deploy",
     "lint": "next lint",
     "lint:fix": "eslint src --fix && pnpm format",
     "lint:strict": "eslint --max-warnings=0 src",
@@ -22,7 +22,6 @@
     "watch-room:server": "node server/watch-room-standalone-server.js --port 3001 --auth YOUR_SECRET_KEY",
     "init:sqlite": "node scripts/init-sqlite.js",
     "init:postgres": "node scripts/init-postgres.js",
-    "init:turso": "node scripts/init-turso.js",
     "db:reset": "rm -f .data/moontv.db .data/moontv.db-shm .data/moontv.db-wal && node scripts/init-sqlite.js",
     "build:edgeone": "pnpm edgeone:build",
     "preview:edgeone": "BUILD_TARGET=edgeone EDGEONE_PAGES=1 node scripts/edgeone-local-preview.mjs",
@@ -39,7 +38,7 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
-    "@libsql/client": "^0.15.0",
+    "@libsql/client": "0.17.4",
     "@types/crypto-js": "^4.2.2",
     "@types/nprogress": "^0.2.3",
     "@types/qrcode": "^1.5.6",
@@ -126,7 +125,8 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^4.9.5",
     "vercel": "^50.4.10",
-    "webpack-obfuscator": "^3.5.1"
+    "webpack-obfuscator": "^3.5.1",
+    "wrangler": "^3.60.3"
   },
   "packageManager": "pnpm@10.14.0"
 }
